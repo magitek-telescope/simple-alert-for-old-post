@@ -13,6 +13,8 @@
 
 class Simple_Alert_For_Old_Post {
 
+	const ONE_DAY = 86400;
+
 	public static function get_instance() {
 		static $instance;
 
@@ -29,6 +31,7 @@ class Simple_Alert_For_Old_Post {
 	}
 
 	private function add_actions() {
+		add_action( 'wp_head', array( $this, 'enqueue_script' ) );
 	}
 
 	private function add_filters() {
@@ -61,9 +64,28 @@ class Simple_Alert_For_Old_Post {
 	}
 
 	public function show_alert( $content ) {
-		return $content;
+		$reference = 3;
+		$date = (int)((int)(date('U') - get_the_date('U') ) / 86400);
+		if ( $date < $reference ){
+			return $content;
+		}
+
+		$output  = "<div class='simple-old-alert alert-default'>";
+		$output .= "<p class='alert-content'>";
+		$output .= "この記事は";
+		$output .= $reference;
+		$output .= "ヶ月以上前に書かれたもので、情報が古い場合があります。";
+		$output .= "</p>";
+		$output .= "</div>";
+		$output .= $content;
+		return $output;
 	}
 
+	public function enqueue_script() {
+		wp_register_style ('simple-alert-for-old-post-csst'  , plugins_url('res/css/style.css' , __FILE__));
+
+		wp_enqueue_style('simple-alert-for-old-post-csst');
+	}
 
 }
 
