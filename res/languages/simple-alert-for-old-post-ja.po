@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-04-18 17:44+0900\n"
+"PO-Revision-Date: 2016-04-18 22:24+0900\n"
 "Last-Translator: Potato4d(Hanatani Takuma) <mail@potato4d.me>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: Poedit 1.5.7\n"
@@ -137,20 +137,16 @@ msgstr "本文が空です。何か入力してください。"
 
 #. Plugin Name of the plugin/theme
 msgid "Simple Alert for Old Post"
-msgstr ""
-
-#. Plugin URI of the plugin/theme
-msgid "PLUGIN SITE HERE"
-msgstr ""
+msgstr "Simple Alert for Old Post"
 
 #. Description of the plugin/theme
-msgid "PLUGIN DESCRIPTION HERE"
-msgstr ""
+msgid "This is the show alert plugin for old post."
+msgstr "古い記事に警告を出すためのプラグインです。"
 
 #. Author of the plugin/theme
 msgid "Potato4d(Hanatani Takuma)"
-msgstr ""
+msgstr "Potato4d(花谷 拓磨)"
 
 #. Author URI of the plugin/theme
-msgid "YOUR SITE HERE"
-msgstr ""
+msgid "http://potato4d.me/"
+msgstr "http://potato4d.me/"

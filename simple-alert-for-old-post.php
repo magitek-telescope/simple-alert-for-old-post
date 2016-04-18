@@ -1,11 +1,10 @@
 <?php
 /**
  * Plugin Name: Simple Alert for Old Post
- * Version: 0.1-alpha
+ * Version: 1.0.0
  * Description: This is the show alert plugin for old post.
  * Author: Potato4d(Hanatani Takuma)
  * Author URI: http://potato4d.me/
- * Plugin URI: PLUGIN SITE HERE
  * Text Domain: simple-alert-for-old-post
  * Domain Path: /res/languages
  * @package Simple Alert for Old Post

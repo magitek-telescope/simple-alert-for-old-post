@@ -140,12 +140,8 @@ msgstr ""
 msgid "Simple Alert for Old Post"
 msgstr ""
 
-#. Plugin URI of the plugin/theme
-msgid "PLUGIN SITE HERE"
-msgstr ""
-
 #. Description of the plugin/theme
-msgid "PLUGIN DESCRIPTION HERE"
+msgid "This is the show alert plugin for old post."
 msgstr ""
 
 #. Author of the plugin/theme
@@ -153,5 +149,5 @@ msgid "Potato4d(Hanatani Takuma)"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "YOUR SITE HERE"
+msgid "http://potato4d.me/"
 msgstr ""
