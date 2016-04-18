@@ -1,6 +1,7 @@
 <div class="wrap">
 <h1><?php _e( 'Alert Settings', 'simple-alert-for-old-post' ); ?></h1>
 <form id="alert_settings" method="post" action="">
+	<?php wp_nonce_field('simple-alert-for-old-post-key', 'simple-alert-for-old-post'); ?>
 
 	<h2><?php _e( 'Date Settings', 'simple-alert-for-old-post'); ?></h2>
 
@@ -34,12 +35,12 @@
 		</div>
 
 		<div class='alert-settings-three-columns-child'>
-			<h3><?php _e( 'Type', 'simple-alert-for-old-post'); ?></h3>
+			<h3><?php _e( 'Icon Type', 'simple-alert-for-old-post'); ?></h3>
 
 			<p>
-				<select name="theme_type" id="alert_settings_theme_type">
-					<?php foreach ($this->theme_types as $name) {
-						echo '<option value="' . esc_attr( $name ) . '" ' .($params['theme_type'] == $name ? 'selected' : '' ) . '>';
+				<select name="icon" id="alert_settings_icon">
+					<?php foreach ($this->icons as $name) {
+						echo '<option value="' . esc_attr( $name ) . '" ' .($params['icon'] == $name ? 'selected' : '' ) . '>';
 							echo __( ucfirst( $name ), 'simple-alert-for-old-post');
 						echo '</option>';
 					}?>
@@ -58,10 +59,10 @@
 
 	</div>
 
-	<h3>Preview</h3>
+	<h3><?php _e( 'Preview', 'simple-alert-for-old-post' );?></h3>
 
 	<div class="alert-preview">
-		<div class='simple-old-alert alert-<?php echo esc_attr( $params['theme'] ); ?> alert-<?php echo esc_attr( $params['theme_type'] ); ?>'>
+		<div class='simple-old-alert alert-<?php echo esc_attr( $params['theme'] ); ?> alert-<?php echo esc_attr( $params['icon'] ); ?>'>
 			<p class='alert-content'>
 				<?php echo esc_html( $params['message'] ); ?>
 			</p>

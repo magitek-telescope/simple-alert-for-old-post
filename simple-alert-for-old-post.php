@@ -18,6 +18,12 @@ class Simple_Alert_For_Old_Post {
 
 	const ONE_DAY = 86400;
 
+	private $dates = array(
+		"day"   => 1,
+		"month" => 30,
+		"year"  => 365
+	);
+
 	private $admin;
 	private $basename;
 
@@ -31,9 +37,9 @@ class Simple_Alert_For_Old_Post {
 	}
 
 	private function __construct() {
+		$this->load_textdomain();
 		$this->basename = plugin_basename( __FILE__ );
 		$this->admin = Simple_Alert_For_Old_Post_Admin::get_instance( $this, $this->basename );
-		$this->load_textdomain();
 		$this->add_actions();
 		$this->add_filters();
 
@@ -52,23 +58,17 @@ class Simple_Alert_For_Old_Post {
 	}
 
 	private function load_textdomain() {
-		load_plugin_textdomain( 'simple-alert-for-old-post', basename( __DIR__ ) . '/languages' );
+		load_plugin_textdomain( 'simple-alert-for-old-post', null, basename( __DIR__ ) . '/res/languages' );
 	}
 
 	public function show_alert( $content ) {
-		$reference = 3;
-		$date = (int)((int)( date('U') - get_the_date('U') ) / self::ONE_DAY);
-		if ( $date < $reference ){
+		$reference = (int)get_option( 'simple_alert_for_old_post_date', '1' ) * $this->dates[get_option( 'simple_alert_for_old_post_date_type', 'month' )];
+		$date = (int)((int)( date('U') - get_the_date('U') ) * (1.0/self::ONE_DAY) );
+		if ( $date < $reference || ( ! is_single() && ! is_page() ) ){
 			return $content;
 		}
 
-		$output  = "<div class='simple-old-alert alert-default'>";
-			$output .= "<p class='alert-content'>";
-			$output .= "この記事は";
-				$output .= $reference;
-			$output .= "ヶ月以上前に書かれたもので、情報が古い場合があります。";
-			$output .= "</p>";
-		$output .= "</div>";
+		$output  = $this->get_alert();
 
 		$output .= $content;
 		return $output;
@@ -103,6 +103,28 @@ EOT;
 
 		wp_register_script('simple-alert-for-old-post-admin-js' , plugins_url('res/js/main.js'    , __FILE__), array('jquery'), false, true);
 		wp_enqueue_script('simple-alert-for-old-post-admin-js');
+	}
+
+	private function get_alert(){
+
+		$params = array(
+			'date'       => get_option( 'simple_alert_for_old_post_date'      , '1' ),
+			'date_type'  => get_option( 'simple_alert_for_old_post_date_type' , 'month' ),
+			'theme'      => get_option( 'simple_alert_for_old_post_theme'     , 'default' ),
+			'icon'       => get_option( 'simple_alert_for_old_post_icon'      , 'info' ),
+			'message'    => get_option( 'simple_alert_for_old_post_message'   , __('This article has been written before more than %s, information might old.', 'simple-alert-for-old-post') )
+		);
+
+		$message = sprintf( $params['message'], $params['date'] . __( $params['date_type'] . 's', 'simple-alert-for-old-post') );
+
+		$output ="<div class='simple-old-alert alert-" . $params['theme'] . " alert-" . $params['icon'] . "'>";
+			$output .= "<p class='alert-content'>";
+				$output .= $message;
+			$output .= "</p>";
+		$output .= "</div>";
+
+		return $output;
+
 	}
 
 }

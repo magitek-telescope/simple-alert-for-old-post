@@ -1,10 +1,10 @@
 <?php
+require_once __DIR__ . '/' . '../src/admin/admin.php';
 
 class SimpleAlertForOldPostTest extends WP_UnitTestCase {
 
-	function test_sample() {
-		// replace this with some actual testing code
-		$this->assertTrue( true );
+	function test_pass() {
+
 	}
 }
 
