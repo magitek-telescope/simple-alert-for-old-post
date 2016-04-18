@@ -20,7 +20,8 @@ gulp.task("server", function(){
         proxy: "wp.potato4d.me",
 		files: [
 			dir.dest+"/**.*",
-			"**.php"
+			"**.php",
+			"**/**.php"
 		]
 	});
 });
@@ -28,12 +29,12 @@ gulp.task("server", function(){
 gulp.task("js", function (){
 	gulp.src(dir.source + "/js/*.js")
 		.pipe(plumber())
-		.pipe(gulp.dest(dir.dest))
+		.pipe(gulp.dest(dir.dest+"/js"))
 		.pipe(uglify())
 		.pipe(rename({
 			extname: '.min.js'
 		}))
-		.pipe(gulp.dest(dir.dest))
+		.pipe(gulp.dest(dir.dest+"/js"))
 })
 
 gulp.task("sass", function(){
