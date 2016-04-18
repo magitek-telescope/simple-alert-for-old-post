@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/potato4d/simple-alert-for-old-post.svg?branch=master)](https://travis-ci.org/potato4d/simple-alert-for-old-post)
+
 # Simple Alert for Old Post #
 **Contributors:** Potato4d  
 **Donate link:** http://www.amazon.co.jp/registry/wishlist/3F2Q1RKGV316A  
