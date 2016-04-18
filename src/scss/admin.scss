@@ -1,0 +1,53 @@
+@charset 'utf-8';
+
+#alert_settings{
+	width: 800px;
+	max-width: 100%;
+
+	.alert-preview{
+		background: #fff;
+		width: 400px;
+		max-width: calc(100% - 20px);
+		margin: 0 auto;
+		padding: 10px;
+		border-radius: 4px;
+
+		.simple-old-alert{
+			margin-bottom: 10px;
+		}
+	}
+
+	.alert-settings-three-columns{
+		width: 100%;
+
+		display: flex;
+
+		.alert-settings-three-columns-child{
+			width: 30%;
+		}
+	}
+
+	.alert-settings-checkbox{
+		&.checkbox-hidden{
+			display: none;
+		}
+	}
+
+	.clearfix:after{
+		display: block;
+		content: "";
+		clear: both;
+	}
+
+	.vertical-middle *{
+		vertical-align: middle;
+	}
+}
+
+@media (max-width:640px){
+	#alert_settings{
+		.alert-settings-three-columns{
+			display: block;
+		}
+	}
+}

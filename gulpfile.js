@@ -1,6 +1,7 @@
 var gulp = require("gulp");
 
 var sass = require("gulp-sass");
+var bulkSass = require("gulp-sass-bulk-import");
 var pleeease = require("gulp-pleeease");
 var sourcemaps = require('gulp-sourcemaps');
 
@@ -11,14 +12,16 @@ var browserSync = require("browser-sync");
 
 var dir = {
 	"source": "./src",
-	"export": "./res"
+	"dest": "./res"
 };
 
 gulp.task("server", function(){
 	browserSync({
         proxy: "wp.potato4d.me",
 		files: [
-			dir.export+"/**.*"
+			dir.dest+"/**.*",
+			"**.php",
+			"**/**.php"
 		]
 	});
 });
@@ -26,36 +29,40 @@ gulp.task("server", function(){
 gulp.task("js", function (){
 	gulp.src(dir.source + "/js/*.js")
 		.pipe(plumber())
-		.pipe(gulp.dest(dir.export))
+		.pipe(gulp.dest(dir.dest+"/js"))
 		.pipe(uglify())
 		.pipe(rename({
 			extname: '.min.js'
 		}))
-		.pipe(gulp.dest(dir.export))
+		.pipe(gulp.dest(dir.dest+"/js"))
 })
 
 gulp.task("sass", function(){
 	gulp.src(dir.source + "/scss/*.scss")
 		.pipe(plumber())
+		.pipe(bulkSass())
 		.pipe(sass({outputStyle: 'expanded'}))
-		.pipe(gulp.dest(dir.export+"/css"))
 		.pipe(sourcemaps.init())
 		.pipe(pleeease({
 			fallbacks: {
 				autoprefixer: ['last 2 versions']
 			},
-			minifier: true
+			minifier: false
 		}))
 		.pipe(sourcemaps.write())
+		.pipe(gulp.dest(dir.dest+"/css"))
+		.pipe(pleeease({
+			minifier: true
+		}))
 		.pipe(rename({
 			extname: '.min.css'
 		}))
-		.pipe(gulp.dest(dir.export+"/css"));
+		.pipe(gulp.dest(dir.dest+"/css"));
 });
 
 gulp.task("build", ["js", "sass"]);
 
 gulp.task("default", ["server", "js", "sass"], function (){
 	gulp.watch([dir.source+"/js/*.js"]    , ["js"]);
-	gulp.watch([dir.source+"/scss/*.scss"], ["sass"]);
+	gulp.watch([dir.source+"/**/*.scss"], ["sass"]);
 });

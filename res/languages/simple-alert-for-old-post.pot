@@ -1,0 +1,153 @@
+# Copyright (C) 2016 Potato4d(Hanatani Takuma)
+# This file is distributed under the same license as the Simple Alert for Old Post package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Simple Alert for Old Post 0.1-alpha\n"
+"Report-Msgid-Bugs-To: "
+"https://wordpress.org/support/plugin/simple-alert-for-old-post\n"
+"POT-Creation-Date: 2016-04-18 07:07:01+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: grunt-wp-i18n 0.5.4\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: United States\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
+
+#: res/views/notice_update.php:2
+msgid "Alert settings were successfully updated."
+msgstr ""
+
+#: res/views/settings_main.php:2 src/admin/admin.php:51 src/admin/admin.php:52
+msgid "Alert Settings"
+msgstr ""
+
+msgid "Days"
+msgstr ""
+
+msgid "Months"
+msgstr ""
+
+msgid "Years"
+msgstr ""
+
+msgid "days"
+msgstr ""
+
+msgid "months"
+msgstr ""
+
+msgid "years"
+msgstr ""
+
+msgid "day"
+msgstr ""
+
+msgid "month"
+msgstr ""
+
+msgid "year"
+msgstr ""
+
+#: res/views/settings_main.php:6
+msgid "Date Settings"
+msgstr ""
+
+#: res/views/settings_main.php:16
+msgid "or earlier"
+msgstr ""
+
+#: res/views/settings_main.php:19
+msgid "Visual Settings"
+msgstr ""
+
+#: res/views/settings_main.php:24
+msgid "Theme"
+msgstr ""
+
+#: res/views/settings_main.php:38
+msgid "Icon Type"
+msgstr ""
+
+#: res/views/settings_main.php:52
+msgid "Text"
+msgstr ""
+
+#: res/views/settings_main.php:56
+msgid "\"%s\" will be replaced to date."
+msgstr ""
+
+#: res/views/settings_main.php:62
+msgid "Preview"
+msgstr ""
+
+#: res/views/settings_main.php:73
+msgid "Display Settings"
+msgstr ""
+
+#: res/views/settings_main.php:75
+msgid "Targets"
+msgstr ""
+
+#: res/views/settings_main.php:78
+msgid "Post"
+msgstr ""
+
+#: res/views/settings_main.php:79
+msgid "Page"
+msgstr ""
+
+#: simple-alert-for-old-post.php:115 src/admin/admin.php:93
+msgid "This article has been written before more than %s, information might old."
+msgstr ""
+
+#: src/admin/admin.php:100
+msgid "Settings"
+msgstr ""
+
+#: src/admin/admin.php:108
+msgid "The date param allows only numeric values ​."
+msgstr ""
+
+#: src/admin/admin.php:112
+msgid "Please select the correct date type."
+msgstr ""
+
+#: src/admin/admin.php:116
+msgid "Please select the correct theme."
+msgstr ""
+
+#: src/admin/admin.php:120
+msgid "Please select the correct theme icon."
+msgstr ""
+
+#: src/admin/admin.php:124
+msgid "The body is empty, Please enter the text ."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Simple Alert for Old Post"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "This is the show alert plugin for old post."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Potato4d(Hanatani Takuma)"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://potato4d.me/"
+msgstr ""

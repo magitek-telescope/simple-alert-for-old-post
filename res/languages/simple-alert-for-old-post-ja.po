@@ -1,0 +1,152 @@
+# Copyright (C) 2016 Potato4d(Hanatani Takuma)
+# This file is distributed under the same license as the Simple Alert for Old Post package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Simple Alert for Old Post 0.1-alpha\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/simple-alert-for-"
+"old-post\n"
+"POT-Creation-Date: 2016-04-18 07:07:01+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-04-18 22:24+0900\n"
+"Last-Translator: Potato4d(Hanatani Takuma) <mail@potato4d.me>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
+"esc_html_x:1,2c\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: ../\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: res/views/notice_update.php:2
+msgid "Alert settings were successfully updated."
+msgstr "アラートの設定は正しく更新されました。"
+
+#: res/views/settings_main.php:2 src/admin/admin.php:51 src/admin/admin.php:52
+msgid "Alert Settings"
+msgstr "Alert Settings"
+
+msgid "Days"
+msgstr "日"
+
+msgid "Months"
+msgstr "ヶ月"
+
+msgid "Years"
+msgstr "年"
+
+msgid "days"
+msgstr "日"
+
+msgid "months"
+msgstr "ヶ月"
+
+msgid "years"
+msgstr "年"
+
+msgid "day"
+msgstr "日"
+
+msgid "month"
+msgstr "ヶ月"
+
+msgid "year"
+msgstr "年"
+
+#: res/views/settings_main.php:6
+msgid "Date Settings"
+msgstr "日付の設定"
+
+#: res/views/settings_main.php:16
+msgid "or earlier"
+msgstr "以上前"
+
+#: res/views/settings_main.php:19
+msgid "Visual Settings"
+msgstr "外観設定"
+
+#: res/views/settings_main.php:24
+msgid "Theme"
+msgstr "テーマ"
+
+#: res/views/settings_main.php:38
+msgid "Icon Type"
+msgstr "アイコン種別"
+
+#: res/views/settings_main.php:52
+msgid "Text"
+msgstr "本文"
+
+#: res/views/settings_main.php:56
+msgid "\"%s\" will be replaced to date."
+msgstr "\"%s\" は日付に置き換えられます。"
+
+#: res/views/settings_main.php:62
+msgid "Preview"
+msgstr "プレビュー"
+
+#: res/views/settings_main.php:73
+msgid "Display Settings"
+msgstr "表示設定"
+
+#: res/views/settings_main.php:75
+msgid "Targets"
+msgstr "表示対象"
+
+#: res/views/settings_main.php:78
+msgid "Post"
+msgstr "投稿"
+
+#: res/views/settings_main.php:79
+msgid "Page"
+msgstr "固定ページ"
+
+#: simple-alert-for-old-post.php:115 src/admin/admin.php:93
+msgid ""
+"This article has been written before more than %s, information might old."
+msgstr "この記事は%s前に書かれたもので、情報が古い場合があります。"
+
+#: src/admin/admin.php:100
+msgid "Settings"
+msgstr "設定"
+
+#: src/admin/admin.php:108
+msgid "The date param allows only numeric values ​."
+msgstr "日付には数値のみ設定できます。"
+
+#: src/admin/admin.php:112
+msgid "Please select the correct date type."
+msgstr "正しい日付の種別を選択してください。"
+
+#: src/admin/admin.php:116
+msgid "Please select the correct theme."
+msgstr "正しいテーマの種別を選択してください。"
+
+#: src/admin/admin.php:120
+msgid "Please select the correct theme icon."
+msgstr "正しいテーマのアイコンを選択してください。"
+
+#: src/admin/admin.php:124
+msgid "The body is empty, Please enter the text ."
+msgstr "本文が空です。何か入力してください。"
+
+#. Plugin Name of the plugin/theme
+msgid "Simple Alert for Old Post"
+msgstr "Simple Alert for Old Post"
+
+#. Description of the plugin/theme
+msgid "This is the show alert plugin for old post."
+msgstr "古い記事に警告を出すためのプラグインです。"
+
+#. Author of the plugin/theme
+msgid "Potato4d(Hanatani Takuma)"
+msgstr "Potato4d(花谷 拓磨)"
+
+#. Author URI of the plugin/theme
+msgid "http://potato4d.me/"
+msgstr "http://potato4d.me/"

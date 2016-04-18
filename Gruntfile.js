@@ -29,7 +29,7 @@ module.exports = function( grunt ) {
 		makepot: {
 			target: {
 				options: {
-					domainPath: '/languages',
+					domainPath: '/res/languages',
 					mainFile: 'simple-alert-for-old-post.php',
 					potFilename: 'simple-alert-for-old-post.pot',
 					potHeaders: {
