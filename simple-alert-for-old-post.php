@@ -62,9 +62,7 @@ class Simple_Alert_For_Old_Post {
 	}
 
 	public function show_alert( $content ) {
-		$reference = (int)get_option( 'simple_alert_for_old_post_date', '1' ) * $this->dates[get_option( 'simple_alert_for_old_post_date_type', 'month' )];
-		$date = (int)((int)( date('U') - get_the_date('U') ) * (1.0/self::ONE_DAY) );
-		if ( $date < $reference ){
+		if( ! $this->check_show_date() ) {
 			return $content;
 		}
 
@@ -111,6 +109,12 @@ EOT;
 
 		wp_register_script('simple-alert-for-old-post-admin-js' , plugins_url('res/js/main.js'    , __FILE__), array('jquery'), false, true);
 		wp_enqueue_script('simple-alert-for-old-post-admin-js');
+	}
+
+	private function check_show_date() {
+		$reference = (int)get_option( 'simple_alert_for_old_post_date', '1' ) * $this->dates[get_option( 'simple_alert_for_old_post_date_type', 'month' )];
+		$date = (int)((int)( date('U') - get_the_date('U') ) * (1.0/self::ONE_DAY) );
+		return $date > $reference;
 	}
 
 	private function get_alert(){
