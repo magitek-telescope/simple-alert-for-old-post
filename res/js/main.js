@@ -19,7 +19,7 @@
 		$(".simple-old-alert").addClass('alert-'+$(this).val());
 	});
 
-	$(prefix['id']+"theme_type").change(function(event) {
+	$(prefix['id']+"icon").change(function(event) {
 		event.preventDefault();
 		switch($(this).val()){
 			case "info" : {
