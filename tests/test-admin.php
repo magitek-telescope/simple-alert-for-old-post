@@ -6,17 +6,20 @@ class SimpleAlertForOldPostTestAdmin extends WP_UnitTestCase {
 	private $admin;
 	private $admin_reflection;
 	private $normal_params;
+	private $normal_checks;
 
 	public function __construct(){
 		$this->admin = Simple_Alert_For_Old_Post_Admin::get_instance();
 		$this->admin_reflection = new ReflectionClass( $this->admin );
 
 		$this->normal_params = array(
-			'date'      => '1',
-			'date_type' => 'month',
-			'theme'     => 'default',
-			'icon'      => 'info',
-			'message'   => 'この記事は%s以上前に書かれたもので、情報が古い場合があります。'
+			'date'           => '1',
+			'date_type'      => 'month',
+			'theme'          => 'default',
+			'icon'           => 'info',
+			'message'        => 'この記事は%s以上前に書かれたもので、情報が古い場合があります。',
+			'is_show_single' => '1',
+			'is_show_page'   => '0'
 		);
 	}
 
@@ -28,6 +31,7 @@ class SimpleAlertForOldPostTestAdmin extends WP_UnitTestCase {
 		$this->validation_pass();
 		$this->validation_null();
 		$this->validation_selects();
+		$this->validation_checkboxes();
 	}
 
 	/**
@@ -61,6 +65,29 @@ class SimpleAlertForOldPostTestAdmin extends WP_UnitTestCase {
 	private function validation_selects(){
 		$this->validation_select( 'date_type', 'date_types', 'error_text' );
 		$this->validation_select( 'theme'    , 'themes'    , 'error_text' );
+	}
+
+	/**
+	 * Checkbox validation
+	 *
+	**/
+	private function validation_checkboxes() {
+		$checks = array(
+			'is_show_single',
+			'is_show_page'
+		);
+		foreach ($checks as $check) {
+			$check_params = $this->normal_params;
+
+			for ($i=0; $i <= 3; $i++) {
+				$check_params[$check] = (String)$i;
+				$wp_error = $this->admin->validation( $check_params );
+				$this->assertEquals(
+					count( $wp_error->errors ),
+					( ( $i >= 2 ) ? 1 : 0 )
+				);
+			}
+		}
 	}
 
 	/**

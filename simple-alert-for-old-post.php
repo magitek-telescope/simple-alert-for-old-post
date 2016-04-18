@@ -2,12 +2,12 @@
 /**
  * Plugin Name: Simple Alert for Old Post
  * Version: 0.1-alpha
- * Description: PLUGIN DESCRIPTION HERE
+ * Description: This is the show alert plugin for old post.
  * Author: Potato4d(Hanatani Takuma)
- * Author URI: YOUR SITE HERE
+ * Author URI: http://potato4d.me/
  * Plugin URI: PLUGIN SITE HERE
  * Text Domain: simple-alert-for-old-post
- * Domain Path: /languages
+ * Domain Path: /res/languages
  * @package Simple Alert for Old Post
  */
 
@@ -64,7 +64,15 @@ class Simple_Alert_For_Old_Post {
 	public function show_alert( $content ) {
 		$reference = (int)get_option( 'simple_alert_for_old_post_date', '1' ) * $this->dates[get_option( 'simple_alert_for_old_post_date_type', 'month' )];
 		$date = (int)((int)( date('U') - get_the_date('U') ) * (1.0/self::ONE_DAY) );
-		if ( $date < $reference || ( ! is_single() && ! is_page() ) ){
+		if ( $date < $reference ){
+			return $content;
+		}
+
+		if( ! get_option( 'simple_alert_for_old_post_is_show_single', '1' ) && is_single() ){
+			return $content;
+		}
+
+		if( ! get_option( 'simple_alert_for_old_post_is_show_page'  , '0' ) && is_page()   ){
 			return $content;
 		}
 
@@ -108,11 +116,13 @@ EOT;
 	private function get_alert(){
 
 		$params = array(
-			'date'       => get_option( 'simple_alert_for_old_post_date'      , '1' ),
-			'date_type'  => get_option( 'simple_alert_for_old_post_date_type' , 'month' ),
-			'theme'      => get_option( 'simple_alert_for_old_post_theme'     , 'default' ),
-			'icon'       => get_option( 'simple_alert_for_old_post_icon'      , 'info' ),
-			'message'    => get_option( 'simple_alert_for_old_post_message'   , __('This article has been written before more than %s, information might old.', 'simple-alert-for-old-post') )
+			'date'           => get_option( 'simple_alert_for_old_post_date'           , '1' ),
+			'date_type'      => get_option( 'simple_alert_for_old_post_date_type'      , 'month' ),
+			'theme'          => get_option( 'simple_alert_for_old_post_theme'          , 'default' ),
+			'icon'           => get_option( 'simple_alert_for_old_post_icon'           , 'info' ),
+			'message'        => get_option( 'simple_alert_for_old_post_message'        , __('This article has been written before more than %s, information might old.', 'simple-alert-for-old-post') ),
+			'is_show_single' => get_option( 'simple_alert_for_old_post_is_show_single' , '1' ),
+			'is_show_page'   => get_option( 'simple_alert_for_old_post_is_show_page'   , '0' )
 		);
 
 		$message = sprintf( $params['message'], $params['date'] . __( $params['date_type'] . 's', 'simple-alert-for-old-post') );

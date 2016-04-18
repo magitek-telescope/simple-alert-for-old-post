@@ -48,4 +48,8 @@
 		update_alert_preview();
 	});
 
+	$(".alert-settings-checkbox").click(function() {
+		$(this).siblings('.checkbox-hidden').click();
+	});
+
 })( jQuery );

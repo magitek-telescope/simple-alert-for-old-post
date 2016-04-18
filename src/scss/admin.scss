@@ -27,6 +27,12 @@
 		}
 	}
 
+	.alert-settings-checkbox{
+		&.checkbox-hidden{
+			display: none;
+		}
+	}
+
 	.clearfix:after{
 		display: block;
 		content: "";

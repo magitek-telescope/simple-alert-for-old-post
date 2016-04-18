@@ -92,6 +92,22 @@ msgstr ""
 msgid "Preview"
 msgstr ""
 
+#: res/views/settings_main.php:73
+msgid "Display Settings"
+msgstr ""
+
+#: res/views/settings_main.php:75
+msgid "Targets"
+msgstr ""
+
+#: res/views/settings_main.php:78
+msgid "Post"
+msgstr ""
+
+#: res/views/settings_main.php:79
+msgid "Page"
+msgstr ""
+
 #: simple-alert-for-old-post.php:115 src/admin/admin.php:93
 msgid "This article has been written before more than %s, information might old."
 msgstr ""
