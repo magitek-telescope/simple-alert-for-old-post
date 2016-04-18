@@ -64,7 +64,9 @@ class Simple_Alert_For_Old_Post_Admin{
 				'date_type',
 				'theme',
 				'icon',
-				'message'
+				'message',
+				'is_show_single',
+				'is_show_page'
 			);
 
 			$result = $this->validation( $_REQUEST );
@@ -86,11 +88,13 @@ class Simple_Alert_For_Old_Post_Admin{
 	public function menu() {
 
 		$params = array(
-			'date'       => get_option( 'simple_alert_for_old_post_date'      , '1' ),
-			'date_type'  => get_option( 'simple_alert_for_old_post_date_type' , 'month' ),
-			'theme'      => get_option( 'simple_alert_for_old_post_theme'     , 'default' ),
-			'icon'       => get_option( 'simple_alert_for_old_post_icon'      , 'info' ),
-			'message'    => get_option( 'simple_alert_for_old_post_message'   , __('This article has been written before more than %s, information might old.', 'simple-alert-for-old-post') )
+			'date'           => get_option( 'simple_alert_for_old_post_date'           , '1' ),
+			'date_type'      => get_option( 'simple_alert_for_old_post_date_type'      , 'month' ),
+			'theme'          => get_option( 'simple_alert_for_old_post_theme'          , 'default' ),
+			'icon'           => get_option( 'simple_alert_for_old_post_icon'           , 'info' ),
+			'message'        => get_option( 'simple_alert_for_old_post_message'        , __('This article has been written before more than %s, information might old.', 'simple-alert-for-old-post') ),
+			'is_show_single' => get_option( 'simple_alert_for_old_post_is_show_single' , '1' ),
+			'is_show_page'   => get_option( 'simple_alert_for_old_post_is_show_page'   , '0' )
 		);
 
 		require_once __DIR__ . '/../../res/views/settings_main.php';
@@ -122,6 +126,14 @@ class Simple_Alert_For_Old_Post_Admin{
 
 		if( is_null( $params['message']) ) {
 			$this->errors->add( '400', __('The body is empty, Please enter the text .', 'simple-alert-for-old-post') );
+		}
+
+		if( ! in_array( $params['is_show_single'], array('0', '1'), true ) ){
+			$this->errors->add( '400', __('Invalid value display post', 'simple-alert-for-old-post') );
+		}
+
+		if( ! in_array( $params['is_show_page']  , array('0', '1'), true ) ){
+			$this->errors->add( '400', __('Invalid value display page', 'simple-alert-for-old-post') );
 		}
 
 		return $this->errors;

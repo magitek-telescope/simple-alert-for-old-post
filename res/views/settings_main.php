@@ -59,7 +59,7 @@
 
 	</div>
 
-	<h3><?php _e( 'Preview', 'simple-alert-for-old-post' );?></h3>
+	<h2><?php _e( 'Preview', 'simple-alert-for-old-post' );?></h2>
 
 	<div class="alert-preview">
 		<div class='simple-old-alert alert-<?php echo esc_attr( $params['theme'] ); ?> alert-<?php echo esc_attr( $params['icon'] ); ?>'>
@@ -68,6 +68,25 @@
 			</p>
 		</div>
 	</div>
+
+
+	<h2><?php _e( 'Display Settings', 'simple-alert-for-old-post' ); ?></h2>
+
+	<h3><?php _e( 'Targets', 'simple-alert-for-old-post'); ?></h3>
+
+	<ul>
+		<li>
+			<input type="checkbox" name="is_show_single" value="1" class="alert-settings-checkbox" <?php if(   $params['is_show_single'] ) echo 'checked="checked"'; ?> >
+			<input type="checkbox" name="is_show_single" value="0" class="alert-settings-checkbox checkbox-hidden" <?php if( ! $params['is_show_single'] ) echo 'checked="checked"'; ?> >
+			<label><?php _e( 'Post', 'simple-alert-for-old-post' ); ?></label>
+		</li>
+
+		<li>
+			<input type="checkbox" name="is_show_page"   value="1" class="alert-settings-checkbox" <?php if(   $params['is_show_page'] ) echo 'checked="checked"'; ?> >
+			<input type="checkbox" name="is_show_page"   value="0" class="alert-settings-checkbox checkbox-hidden" <?php if( ! $params['is_show_page'] ) echo 'checked="checked"'; ?> >
+			<label><?php _e( 'Page', 'simple-alert-for-old-post' ); ?></label></li>
+	</ul>
+
 
 	<input type="hidden" name="simple_old_alert_settings_isupdate" value="1">
 

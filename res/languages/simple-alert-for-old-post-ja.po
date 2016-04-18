@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-04-18 16:20+0900\n"
+"PO-Revision-Date: 2016-04-18 17:44+0900\n"
 "Last-Translator: Potato4d(Hanatani Takuma) <mail@potato4d.me>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: Poedit 1.5.7\n"
@@ -89,6 +89,22 @@ msgstr "\"%s\" は日付に置き換えられます。"
 #: res/views/settings_main.php:62
 msgid "Preview"
 msgstr "プレビュー"
+
+#: res/views/settings_main.php:73
+msgid "Display Settings"
+msgstr "表示設定"
+
+#: res/views/settings_main.php:75
+msgid "Targets"
+msgstr "表示対象"
+
+#: res/views/settings_main.php:78
+msgid "Post"
+msgstr "投稿"
+
+#: res/views/settings_main.php:79
+msgid "Page"
+msgstr "固定ページ"
 
 #: simple-alert-for-old-post.php:115 src/admin/admin.php:93
 msgid ""
