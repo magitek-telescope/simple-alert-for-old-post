@@ -1,18 +1,15 @@
 language: php
-
 notifications:
   email:
     on_success: never
     on_failure: change
-
+  slack:
+    secure: kG9RLUJEyTnN/BgTNhyUXah/35kuMoQWjKJBIvDOSScUvuR2D+JEC3yxmPpzhN21bYt6GMpEG+rmQbg+HW4XS1tNj8t6vguaWg+MuezFijP5FGAUMqM3K96DIHCwY+Fvf8ui17pUGIer+79+ysCtw40mI9xs+xXBFPfjffhgT0KNwHUP1OmdGC45IbFHkbrwqUTMkJPqrN4CEYZDYO0wKC4LsEK4mwWjxdqQpeqXwomYHmYZ7yltzq04cxpzTVnv0l+cDGlAnzH8ilg5oFEnALL1AcLaBYnkuBo7C6hgjdUZzyavr7GHxfK3H6h+SXsl8oPNa4NCh0+uQEZ/mq7rGuFTa1+0wbnClSS5ftRw+uGAJ6hUABppZwQMnhy+USNpB02SKVQqDuIDi9W4DqJDHFXdzSkufIlHjTFXgAbbpng8MFkDkF7wf8sNE9N3Fysm8TK9wmCqdWGKFZeimikA/S0Npi3xQxWi5OnZcNsSRhqCZldqm5MXfLQS5eHNQ4abj0H9MpIuXYP8XddP/PCD4BigGDg1f3eX+sGICAdxuHtBI0nZc5/BQguS3wPxPoyJImG85JENKxAT4NvL5gJcyxlXAi9nhFIV1t97BzNSCkHDxylHSyGJCQKR+oMXREq2zJVxo3ROJzqWpmPfp2ZB/QW081in6mmGymYDI2jaoa4=
 php:
-  - 5.3
-  - 5.6
-
+- 5.3
+- 5.6
 env:
-  - WP_VERSION=latest WP_MULTISITE=0
-
+- WP_VERSION=latest WP_MULTISITE=0
 before_script:
-  - bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
-
+- bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
 script: phpunit

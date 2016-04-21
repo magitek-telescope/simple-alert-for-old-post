@@ -84,8 +84,8 @@ class Simple_Alert_For_Old_Post {
 		wp_enqueue_style('simple-alert-for-old-post-css');
 
 		$img_url = array(
-			'default' => plugins_url( 'res/images/info.svg' , __FILE__ ),
-			'caution' => plugins_url( 'res/images/caution.svg' , __FILE__ )
+			'default' => plugins_url( 'res/images/Info.svg' , __FILE__ ),
+			'caution' => plugins_url( 'res/images/Caution.svg' , __FILE__ )
 		);
 		echo <<< EOT
 <style>
