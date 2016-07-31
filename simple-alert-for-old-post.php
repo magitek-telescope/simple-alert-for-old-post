@@ -103,6 +103,9 @@ EOT;
 
 	public function admin_enqueue_script() {
 		$this->enqueue_script();
+
+		if( filter_input( INPUT_GET, "page" ) != "simple-alert-for-old-post" ) return;
+		
 		wp_register_style( 'simple-alert-for-old-post-admin-css', plugins_url( 'res/css/admin.css' , __FILE__ ) );
 		wp_enqueue_style('simple-alert-for-old-post-admin-css');
 
