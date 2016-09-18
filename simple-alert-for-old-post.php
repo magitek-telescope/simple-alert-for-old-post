@@ -7,10 +7,11 @@
  * Author URI: http://potato4d.me/
  * Text Domain: simple-alert-for-old-post
  * Domain Path: /res/languages
+ *
  * @package Simple Alert for Old Post
  */
 
-require_once __DIR__ . '/src/admin/admin.php';
+require_once __DIR__ . '/app/Admin.php';
 add_action( 'plugins_loaded', array( 'Simple_Alert_For_Old_Post', 'get_instance' ) );
 
 class Simple_Alert_For_Old_Post {
@@ -18,9 +19,9 @@ class Simple_Alert_For_Old_Post {
 	const ONE_DAY = 86400;
 
 	private $dates = array(
-		"day"   => 1,
-		"month" => 30,
-		"year"  => 365
+		'day'   => 1,
+		'month' => 30,
+		'year'  => 365,
 	);
 
 	private $admin;
@@ -61,31 +62,29 @@ class Simple_Alert_For_Old_Post {
 	}
 
 	public function show_alert( $content ) {
-		if( ! $this->check_show_date() ) {
+		if ( ! $this->check_show_date() ) {
 			return $content;
 		}
 
-		if( ! get_option( 'simple_alert_for_old_post_is_show_single', '1' ) && is_single() ){
+		if ( ! get_option( 'simple_alert_for_old_post_is_show_single', '1' ) && is_single() ) {
 			return $content;
 		}
 
-		if( ! get_option( 'simple_alert_for_old_post_is_show_page'  , '0' ) && is_page()   ){
+		if ( ! get_option( 'simple_alert_for_old_post_is_show_page'  , '0' ) && is_page()   ) {
 			return $content;
 		}
 
-		$output  = $this->get_alert();
-
-		$output .= $content;
+		$output  = $this->get_alert() . $content;
 		return $output;
 	}
 
 	public function enqueue_script() {
 		wp_register_style( 'simple-alert-for-old-post-css', plugins_url( 'res/css/style.css' , __FILE__ ) );
-		wp_enqueue_style('simple-alert-for-old-post-css');
+		wp_enqueue_style( 'simple-alert-for-old-post-css' );
 
 		$img_url = array(
 			'default' => plugins_url( 'res/images/Info.svg' , __FILE__ ),
-			'caution' => plugins_url( 'res/images/Caution.svg' , __FILE__ )
+			'caution' => plugins_url( 'res/images/Caution.svg' , __FILE__ ),
 		);
 		echo <<< EOT
 <style>
@@ -104,38 +103,37 @@ EOT;
 	public function admin_enqueue_script() {
 		$this->enqueue_script();
 		wp_register_style( 'simple-alert-for-old-post-admin-css', plugins_url( 'res/css/admin.css' , __FILE__ ) );
-		wp_enqueue_style('simple-alert-for-old-post-admin-css');
+		wp_enqueue_style( 'simple-alert-for-old-post-admin-css' );
 
-		wp_register_script('simple-alert-for-old-post-admin-js' , plugins_url('res/js/main.js'    , __FILE__), array('jquery'), false, true);
-		wp_enqueue_script('simple-alert-for-old-post-admin-js');
+		wp_register_script( 'simple-alert-for-old-post-admin-js' , plugins_url( 'res/js/main.js'    , __FILE__ ), array( 'jquery' ), false, true );
+		wp_enqueue_script( 'simple-alert-for-old-post-admin-js' );
 	}
 
 	private function check_show_date() {
-		$reference = (int)get_option( 'simple_alert_for_old_post_date', '1' ) * $this->dates[get_option( 'simple_alert_for_old_post_date_type', 'month' )];
-		$date = (int)((int)( date('U') - get_the_date('U') ) * (1.0/self::ONE_DAY) );
+		$reference = (int) get_option( 'simple_alert_for_old_post_date', '1' ) * $this->dates[ get_option( 'simple_alert_for_old_post_date_type', 'month' ) ];
+		$date = (int) ((int) ( date( 'U' ) - get_the_date( 'U' ) ) * (1.0 / self::ONE_DAY) );
 		return $date > $reference;
 	}
 
-	private function get_alert(){
+	private function get_alert() {
 
 		$params = array(
 			'date'           => get_option( 'simple_alert_for_old_post_date'           , '1' ),
 			'date_type'      => get_option( 'simple_alert_for_old_post_date_type'      , 'month' ),
 			'theme'          => get_option( 'simple_alert_for_old_post_theme'          , 'default' ),
 			'icon'           => get_option( 'simple_alert_for_old_post_icon'           , 'info' ),
-			'message'        => get_option( 'simple_alert_for_old_post_message'        , __('This article has been written before more than %s, information might old.', 'simple-alert-for-old-post') ),
+			'message'        => get_option( 'simple_alert_for_old_post_message'        , __( 'This article has been written before more than %s, information might old.', 'simple-alert-for-old-post' ) ),
 			'is_show_single' => get_option( 'simple_alert_for_old_post_is_show_single' , '1' ),
-			'is_show_page'   => get_option( 'simple_alert_for_old_post_is_show_page'   , '0' )
+			'is_show_page'   => get_option( 'simple_alert_for_old_post_is_show_page'   , '0' ),
 		);
 
-		$message = sprintf( $params['message'], $params['date'] . __( $params['date_type'] . 's', 'simple-alert-for-old-post') );
+		$message = sprintf( $params['message'], $params['date'] . __( $params['date_type'] . 's', 'simple-alert-for-old-post' ) );
 
-		$output ="<div class='simple-old-alert alert-" . $params['theme'] . " alert-" . $params['icon'] . "'>";
-			$output .= "<p class='alert-content'>";
-				$output .= $message;
-			$output .= "</p>";
-		$output .= "</div>";
-
+		$output = <<< EOT
+			<div class='simple-old-alert alert-{$params['theme']} alert-{$params['icon']}'>
+				<p class='alert-content'>{$message}</p>
+			</div>
+EOT;
 		return $output;
 
 	}

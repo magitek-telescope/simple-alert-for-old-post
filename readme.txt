@@ -4,7 +4,7 @@ Donate link: http://www.amazon.co.jp/registry/wishlist/3F2Q1RKGV316A
 Tags: Post, posts, text
 Requires at least: 4.2
 Tested up to: 4.5
-Stable tag: 1.0.0
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ This is the show alert plugin for old post. color scheme, customize icon and tex
 
 == Description ==
 
-This is the show alert plugin for old post. color scheme, customize icon and text.  
+This is the show alert plugin for old post. color scheme, customize icon and text.
 It has the following functions.
 
 *	Settings Show reference date.

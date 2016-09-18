@@ -2,3 +2,5 @@
 .svnignore
 .svn
 node_modules/
+
+/vendor/
