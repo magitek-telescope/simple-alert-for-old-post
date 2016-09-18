@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/' . '../src/admin/admin.php';
+require_once __DIR__ . '/' . '../app/Admin.php';
 
 class SimpleAlertForOldPostTest extends WP_UnitTestCase {
 
